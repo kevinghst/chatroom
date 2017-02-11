@@ -22,3 +22,5 @@ bundle.js
 bundle.js.map
 .DS_Store
 .npm-debug.log
+
+/config/application.yml
