@@ -10,6 +10,8 @@ class User < ActiveRecord::Base
 
   before_validation :ensure_session_token
 
+  has_and_belongs_to_many :messages
+
   def verify_password(password)
     self.is_password?(password) ? self : nil
   end
