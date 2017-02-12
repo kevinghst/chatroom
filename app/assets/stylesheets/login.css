@@ -1,0 +1,61 @@
+.login-main {
+    width: 250px;
+    height: 100px;
+
+    position: absolute;
+    top:0;
+    bottom: 220px;
+    left: 0;
+    right: 0;
+
+    margin: auto;
+}
+
+.logo {
+  font-weight: lighter;
+  font-size: 22px;
+  width: 100px;
+  margin: auto;
+  color: #e4e4e4;
+}
+
+.login {
+  margin-top: 60px;
+  position: relative;
+}
+
+.field {
+  font-size: 18px;
+  margin-bottom: 11px;
+}
+
+.field input{
+  border-bottom: 1px solid #3e3e3e;
+  padding: 11px 75px 11px 0;
+}
+
+.field input:focus {
+  border-bottom: 1px solid white;
+}
+
+.submit-button {
+  font-size: 14px;
+  color: #3e3e3e;
+  font-weight: bolder;
+  background: #e4e4e4;
+  padding: 13px 43px;
+  border-radius: 5px;
+  margin-top: 30px;
+  margin-left: 67px;
+}
+
+.submit-button:hover {
+  cursor: pointer;
+}
+
+.loginErrors {
+  color: #f0523d;
+  position: absolute;
+  right: -255px;
+  bottom: 93px;
+}
