@@ -21,6 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
     window.fetchMessages = fetchMessages;
     window.createMessage = createMessage;
     window.fetchUnseenMessages = fetchUnseenMessages;
+    window.login = login;
 
     const root = document.getElementById('root');
     ReactDOM.render(<Root store={store} />, root);

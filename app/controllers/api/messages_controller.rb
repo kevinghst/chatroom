@@ -18,7 +18,7 @@ class Api::MessagesController < ApplicationController
     seen_messages = current_user.messages
     @unseen_messages = Message.all - seen_messages
     render :show
-    user.messages << @unseen_messages
+    current_user.messages << @unseen_messages
   end
 
 end
