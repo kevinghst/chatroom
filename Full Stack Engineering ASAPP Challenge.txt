@@ -17,7 +17,7 @@ Your server should support the following requests:
 Takes a username and, if the user doesn’t already exist it, saves it to the data store.
 
 - Send Message
-Takes a message and saves that to the data store. 
+Takes a message and saves that to the data store.
 
 - Fetch Messages
 Loads all messages. The server should also have the capability of loading only "new" messages, i.e. messages that a user hasn't seen yet. It's up to you how to support this.
@@ -50,3 +50,15 @@ We’ll discuss these as part of the project review. Don't worry if you don't ha
 - How well does your project scale? What if the number of users grow to 1000? To 1000000? (And the conversation history grows too.)
 
 - What if you had users around the globe? How do you keep the application responsive?
+
+
+
+
+kevinghst
+123456
+
+gorilla
+123456
+
+lily
+123456
