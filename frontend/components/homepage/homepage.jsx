@@ -44,7 +44,9 @@ class HomePage extends React.Component{
       <div className="chat-main">
         <section className="left-pane">
           <div className="currentUser">{currentUser.username}</div>
-          <button className="logout-button" onClick={this.logout}>Log Out</button>
+          <div className="logout-button">
+            <button onClick={this.logout}>Log Out</button>
+          </div>
         </section>
 
         <section className="middle-pane">
