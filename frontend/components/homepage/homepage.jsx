@@ -40,33 +40,39 @@ class HomePage extends React.Component{
 
     let currentUser = this.props.currentUser || {};
 
+    let allMessageStatus = this.state.display_new === false ? 'activated' : 'inactivated';
+    let newMessageStatus = this.state.display_new === true ? 'activated' : 'inactivated';
+
     return(
-      <div className="chat-main">
-        <section className="left-pane">
-          <div className="currentUser">{currentUser.username}</div>
-          <div className="logout-button">
-            <button onClick={this.logout}>Log Out</button>
-          </div>
-        </section>
+      <div className="chat-container">
+        <div className="chat-main">
+          <section className="left-pane">
+            <div className="currentUser">{currentUser.username}</div>
+            <div className="logout-button">
+              <button onClick={this.logout}>Log Out</button>
+            </div>
+          </section>
 
-        <section className="middle-pane">
-          <div className="buttons">
-            <button className="all-button" onClick={this.switchAll}>All Messages</button>
-            <button className="new-button" onClick={this.switchNew}>New Messages</button>
-          </div>
+          <section className="middle-pane">
+            <div className="buttons">
+              <button className={`all-button ${allMessageStatus}`} onClick={this.switchAll}>All Messages</button>
+              <button className={`new-button ${newMessageStatus}`} onClick={this.switchNew}>New Messages</button>
+            </div>
 
-          <ChatHistory
-            messages = {messages}
-            currentUser = {currentUser}
-            createMessage = {this.props.createMessage}
-            fetchLastMessage = {this.props.fetchLastMessage}
-          />
+            <ChatHistory
+              messages = {messages}
+              currentUser = {currentUser}
+              createMessage = {this.props.createMessage}
+              fetchLastMessage = {this.props.fetchLastMessage}
+            />
 
-        </section>
+          </section>
 
 
 
+        </div>
       </div>
+
     );
   }
 }

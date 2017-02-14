@@ -19,7 +19,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
       fetchLastMessage: () => dispatch(fetchLastMessage()),
       fetchMessages: () => dispatch(fetchMessages()),
       fetchUnseenMessages: () => dispatch(fetchUnseenMessages()),
-      createMessage: () => dispatch(createMessage())
+      createMessage: (message) => dispatch(createMessage(message))
   };
 };
 
