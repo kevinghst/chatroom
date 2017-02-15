@@ -1,3 +1,4 @@
-json.array! @unseen_messages do |message|
-  json.partial! "api/messages/message", locals: {message: message}
-end
+json.id @message.id
+json.author_id @message.author_id
+json.body @message.body
+json.author_name @message.author.username

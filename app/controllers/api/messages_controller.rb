@@ -5,6 +5,9 @@ class Api::MessagesController < ApplicationController
 
     @message = Message.new(body: body, author_id: author_id)
     @message.save
+
+    Pusher.trigger('chat_room', 'message_sent', {})
+
   end
 
   def index
@@ -15,10 +18,16 @@ class Api::MessagesController < ApplicationController
   end
 
   def show
-    seen_messages = current_user.messages
-    @unseen_messages = Message.all - seen_messages
-    render :show
-    current_user.messages << @unseen_messages
+    if params[:id] == "1"
+      @message = Message.last
+      render :show
+      current_user.messages << @message
+    else
+      seen_messages = current_user.messages
+      @messages = Message.all - seen_messages
+      render :index
+      current_user.messages << @messages
+    end
   end
 
 end

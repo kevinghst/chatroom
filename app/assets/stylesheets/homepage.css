@@ -123,7 +123,7 @@
 .message {
   display: flex;
   align-items: center;
-  margin-bottom: 7px;
+  margin-bottom: 5px;
 }
 
 .message-author {
@@ -143,8 +143,26 @@
 
 .message-author.from-me {
   visibility: hidden;
+  height: 0;
 }
 
 .message.from-me {
   text-align: right;
+  display: block;
+}
+
+.message-content {
+  display: inline-block;
+}
+
+.message-content.from-me {
+  background: #4080ff;
+  color: white;
+}
+
+.chat-history {
+  height: 450px;
+  overflow: scroll;
+  padding-right: 20px;
+  padding-bottom: 20px;
 }

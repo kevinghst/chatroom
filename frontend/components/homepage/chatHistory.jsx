@@ -10,6 +10,30 @@ class ChatHistory extends React.Component{
     };
     this.updateMessage = this.updateMessage.bind(this);
     this.createMessage = this.createMessage.bind(this);
+    this.pusher = new Pusher('e56dbe4cab96698be82b', {
+      encrypted: true
+    });
+  }
+
+  componentDidMount(){
+    let that = this;
+    const objDiv = document.getElementById('chat-history');
+    objDiv.scrollTop = objDiv.scrollHeight;
+
+    var channel = this.pusher.subscribe('chat_room');
+    channel.bind('message_sent', function(data) {
+      that.props.fetchLastMessage();
+    });
+
+  }
+
+  componentWillUnmount(){
+    this.pusher.disconnect();
+  }
+
+  componentDidUpdate(){
+    const objDiv = document.getElementById('chat-history');
+    objDiv.scrollTop = objDiv.scrollHeight;
   }
 
   createMessage(e){
@@ -29,10 +53,10 @@ class ChatHistory extends React.Component{
 
     return(
       <div className="message-section">
-        <ul className = "chat-history">
+        <ul id="chat-history" className = "chat-history">
           {
             messages.map((message, idx) =>
-              <Message currentUser={currentUser} message={message} key={idx} />
+              <Message currentUser={currentUser} lastmessage={messages[idx-1]} message={message} idx={idx} key={idx} />
             )
           }
         </ul>

@@ -35,6 +35,8 @@ gem 'annotate'
 # Use ActiveModel has_secure_password
 gem "bcrypt-ruby", :require => "bcrypt"
 
+gem 'pusher'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

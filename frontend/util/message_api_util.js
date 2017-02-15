@@ -19,3 +19,10 @@ export const createMessage = (message) => {
     data: { message }
   });
 };
+
+export const fetchLastMessage = () => {
+  return $.ajax({
+    method: 'GET',
+    url: `/api/messages/1`
+  });
+};
