@@ -12,7 +12,7 @@ The Details
 Your challenge is to design and implement a basic chat service that allows users to broadcast messages to each other in a shared chat room. It should include a server backed by a persistent data store and a web client.
 
 Your server should support the following requests:
-
+.
 - Login User
 Takes a username and, if the user doesn’t already exist it, saves it to the data store.
 
