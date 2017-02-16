@@ -1,5 +1,4 @@
 import {RECEIVE_MESSAGE, RECEIVE_MESSAGES, RECEIVE_NEW_MESSAGES} from '../actions/message_actions';
-import merge from 'lodash/merge';
 
 const initState = {
   all: [],

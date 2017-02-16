@@ -1,5 +1,4 @@
 import {RECEIVE_CURRENT_USER, RECEIVE_LOGIN_ERRORS, RECEIVE_SIGNUP_ERRORS} from '../actions/session_actions';
-import merge from 'lodash/merge';
 
 const initState = {
   currentUser: null,
