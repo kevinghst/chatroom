@@ -15,11 +15,7 @@ const MessageReducer = (state = initState, action) => {
     case RECEIVE_MESSAGE:
       let clone_all = [].concat(state.all);
       clone_all.push(action.message);
-
-      let clone_new = [].concat(state.new);
-      clone_new.push(action.message);
-
-      return { all: clone_all, new: clone_new };
+      return { all: clone_all, new: state.new };
     default:
       return state;
   }

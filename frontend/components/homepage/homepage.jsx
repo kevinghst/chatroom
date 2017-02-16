@@ -43,6 +43,14 @@ class HomePage extends React.Component{
     let allMessageStatus = this.state.display_new === false ? 'activated' : 'inactivated';
     let newMessageStatus = this.state.display_new === true ? 'activated' : 'inactivated';
 
+    let newMessageNumber = this.props.new_messages.length;
+    let notification;
+    if (newMessageNumber > 0) {
+      notification = (
+        <div className="notification">{newMessageNumber}</div>
+      );
+    }
+
     return(
       <div className="chat-container">
         <div className="chat-main">
@@ -57,6 +65,7 @@ class HomePage extends React.Component{
             <div className="buttons">
               <button className={`all-button ${allMessageStatus}`} onClick={this.switchAll}>All Messages</button>
               <button className={`new-button ${newMessageStatus}`} onClick={this.switchNew}>New Messages</button>
+              {notification}
             </div>
 
             <ChatHistory
