@@ -3,6 +3,7 @@ import * as APIUtil from '../util/message_api_util';
 export const RECEIVE_MESSAGE = "RECEIVE_MESSAGE";
 export const RECEIVE_MESSAGES = "RECEIVE_MESSAGES";
 export const RECEIVE_NEW_MESSAGES = "RECEIVE_NEW_MESSAGES";
+export const ERASE_MESSAGES = "ERASE_MESSAGES";
 
 export const receiveMessage = message => {
   return {
@@ -24,6 +25,18 @@ export const receiveNewMessages = messages => {
     messages
   };
 };
+
+export const eraseMessages = () => {
+  return {
+    type: ERASE_MESSAGES
+  };
+};
+
+export function cleanNewMessages(){
+  return(dispatch) => {
+    return dispatch(eraseMessages());
+  };
+}
 
 export function fetchLastMessage(){
   return(dispatch) => {

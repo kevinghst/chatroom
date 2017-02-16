@@ -1,7 +1,7 @@
 import {connect} from 'react-redux';
 import HomePage from './homepage';
 import {logout} from '../../actions/session_actions';
-import {fetchLastMessage, fetchMessages, fetchUnseenMessages, createMessage} from '../../actions/message_actions';
+import {fetchLastMessage, fetchMessages, fetchUnseenMessages, createMessage, cleanNewMessages} from '../../actions/message_actions';
 
 const mapStateToProps = (state) => {
   const log = !!state.session.currentUser;
@@ -19,7 +19,8 @@ const mapDispatchToProps = (dispatch, ownProps) => {
       fetchLastMessage: () => dispatch(fetchLastMessage()),
       fetchMessages: () => dispatch(fetchMessages()),
       fetchUnseenMessages: () => dispatch(fetchUnseenMessages()),
-      createMessage: (message) => dispatch(createMessage(message))
+      createMessage: (message) => dispatch(createMessage(message)),
+      cleanNewMessages: () => dispatch(cleanNewMessages())
   };
 };
 

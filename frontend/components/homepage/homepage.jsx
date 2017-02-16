@@ -26,6 +26,9 @@ class HomePage extends React.Component{
   }
 
   switchAll(){
+    if (this.state.display_new) {
+      this.props.cleanNewMessages();
+    }
     this.setState({display_new: false});
   }
 
