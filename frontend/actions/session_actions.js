@@ -3,6 +3,14 @@ import * as APIUtil from '../util/session_api_util';
 export const RECEIVE_CURRENT_USER = "RECEIVE_CURRENT_USER";
 export const RECEIVE_SIGNUP_ERRORS = "RECEIVE_SIGNUP_ERRORS";
 export const RECEIVE_LOGIN_ERRORS = "RECEIVE_LOGIN_ERRORS";
+export const RECEIVE_LOGIN_USER = "RECEIVE_LOGIN_USER";
+
+export const receiveLoginUser = loginUser => {
+  return {
+    type: RECEIVE_LOGIN_USER,
+    loginUser
+  };
+};
 
 export const receiveCurrentUser = currentUser => {
   return {
@@ -24,6 +32,14 @@ export const receiveSignupErrors = signupErrors => {
     signupErrors
   };
 };
+
+export function fetchLoginUser(){
+  return (dispatch) => {
+    return APIUtil.fetchLoginUser().then(
+      (loginUser) => dispatch(receiveLoginUser(loginUser))
+    );
+  };
+}
 
 export function signup(user){
   return (dispatch) => {

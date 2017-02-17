@@ -9,6 +9,11 @@ class Api::UsersController < ApplicationController
     end
   end
 
+  def index
+    @user = User.all.order('updated_at DESC').last
+    render :index
+  end
+
   def user_params
     params.require(:user).permit(:firstname, :lastname, :gender, :birthday, :username, :password)
   end

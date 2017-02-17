@@ -12,6 +12,9 @@ class HomePage extends React.Component{
     this.logout = this.logout.bind(this);
     this.switchAll = this.switchAll.bind(this);
     this.switchNew = this.switchNew.bind(this);
+    this.pusher = new Pusher('e56dbe4cab96698be82b', {
+      encrypted: true
+    });
   }
 
   componentDidMount(){
@@ -76,6 +79,7 @@ class HomePage extends React.Component{
               currentUser = {currentUser}
               createMessage = {this.props.createMessage}
               fetchLastMessage = {this.props.fetchLastMessage}
+              pusher = {this.pusher}
             />
 
           </section>

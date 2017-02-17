@@ -10,9 +10,6 @@ class ChatHistory extends React.Component{
     };
     this.updateMessage = this.updateMessage.bind(this);
     this.createMessage = this.createMessage.bind(this);
-    this.pusher = new Pusher('e56dbe4cab96698be82b', {
-      encrypted: true
-    });
   }
 
   componentDidMount(){
@@ -20,15 +17,14 @@ class ChatHistory extends React.Component{
     const objDiv = document.getElementById('chat-history');
     objDiv.scrollTop = objDiv.scrollHeight;
 
-    var channel = this.pusher.subscribe('chat_room');
+    var channel = this.props.pusher.subscribe('chat_room');
     channel.bind('message_sent', function(data) {
       that.props.fetchLastMessage();
     });
-
   }
 
   componentWillUnmount(){
-    this.pusher.disconnect();
+    this.props.pusher.disconnect();
   }
 
   componentDidUpdate(){
