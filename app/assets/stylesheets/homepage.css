@@ -33,6 +33,7 @@
   color: #000;
   background: #e9ebee;
   min-width: 250px;
+  position: relative;
 }
 
 .middle-pane {
