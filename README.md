@@ -6,4 +6,4 @@ Explore the app in full at http://chattabox.herokuapp.com
 
 ### Features
 * User sign-up & authentication using bcrypt and randomly generated session tokens
-* Live chat and online-users status using Pusher
+* Live chat and user-presence detection using Pusher
