@@ -1,6 +1,4 @@
 class Api::UsersController < ApplicationController
-
-
   def index
     @users = User.where('log = 1')
     render :index

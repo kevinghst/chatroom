@@ -1,24 +1,9 @@
-# README
+# Chattabox
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Chattabox is an application built using Ruby on Rails for backend and React/Redux for front-end.
 
-Things you may want to cover:
+Explore the app in full at http://chattabox.herokuapp.com
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### Features
+* User sign-up & authentication using bcrypt and randomly generated session tokens
+* Live chat and online-users status using Pusher
