@@ -50,15 +50,3 @@ We’ll discuss these as part of the project review. Don't worry if you don't ha
 - How well does your project scale? What if the number of users grow to 1000? To 1000000? (And the conversation history grows too.)
 
 - What if you had users around the globe? How do you keep the application responsive?
-
-
-
-
-kevinghst
-123456
-
-gorilla
-123456
-
-lily
-123456

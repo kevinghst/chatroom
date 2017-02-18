@@ -1,4 +1,5 @@
 import {RECEIVE_MESSAGE, RECEIVE_MESSAGES, RECEIVE_NEW_MESSAGES, ERASE_MESSAGES} from '../actions/message_actions';
+import {merge} from 'lodash';
 
 const initState = {
   all: [],
@@ -15,9 +16,10 @@ const MessageReducer = (state = initState, action) => {
     case ERASE_MESSAGES:
       return {all: state.all, new: []};
     case RECEIVE_MESSAGE:
-      let clone_all = [].concat(state.all);
-      clone_all.push(action.message);
-      return { all: clone_all, new: state.new };
+      let clone = merge({}, state);
+      clone.all.push(action.message);
+      clone.new.push(action.message);
+      return clone;
     default:
       return state;
   }
