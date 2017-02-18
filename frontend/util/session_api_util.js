@@ -33,4 +33,4 @@ export const fetchLoginUsers = () => {
     method: 'GET',
     url: '/api/users',
   });
-}
+};

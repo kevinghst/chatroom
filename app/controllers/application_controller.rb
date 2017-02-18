@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
     session[:session_token]  = user.session_token
     user.log = 1
     user.save
-    Pusher.trigger('user_logs', 'user_login', {})
+    Pusher.trigger('user_logs', 'login', {})
   end
 
   def logout(user)
@@ -18,7 +18,7 @@ class ApplicationController < ActionController::Base
     session[:session_token] = nil
     user.log = 0
     user.save
-    Pusher.trigger('user_logs', 'user_logout', {})
+    Pusher.trigger('user_logs', 'logout', {})
   end
 
 end

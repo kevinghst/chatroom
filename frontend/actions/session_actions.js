@@ -4,6 +4,7 @@ export const RECEIVE_CURRENT_USER = "RECEIVE_CURRENT_USER";
 export const RECEIVE_SIGNUP_ERRORS = "RECEIVE_SIGNUP_ERRORS";
 export const RECEIVE_LOGIN_ERRORS = "RECEIVE_LOGIN_ERRORS";
 export const RECEIVE_LOGIN_USER = "RECEIVE_LOGIN_USER";
+export const RECEIVE_LOGOUT_USER = "RECEIVE_LOGOUT_USER";
 export const RECEIVE_LOGIN_USERS = "RECEIVE_LOGIN_USERS";
 
 export const receiveLoginUser = loginUser => {
@@ -13,12 +14,19 @@ export const receiveLoginUser = loginUser => {
   };
 };
 
+export const receiveLogoutUser = logoutUser => {
+  return {
+    type: RECEIVE_LOGOUT_USER,
+    logoutUser
+  };
+};
+
 export const receiveLoginUsers = loginUsers => {
   return {
     type: RECEIVE_LOGIN_USERS,
     loginUsers
-  }
-}
+  };
+};
 
 export const receiveCurrentUser = currentUser => {
   return {
@@ -45,6 +53,14 @@ export function fetchLoginUser(){
   return (dispatch) => {
     return APIUtil.fetchLoginUser().then(
       (loginUser) => dispatch(receiveLoginUser(loginUser))
+    );
+  };
+}
+
+export function fetchLogoutUser(){
+  return (dispatch) => {
+    return APIUtil.fetchLoginUser().then(
+      (logoutUser) => dispatch(receiveLogoutUser(logoutUser))
     );
   };
 }

@@ -1,4 +1,5 @@
-import {RECEIVE_CURRENT_USER, RECEIVE_LOGIN_USER, RECEIVE_LOGIN_USERS, RECEIVE_LOGIN_ERRORS, RECEIVE_SIGNUP_ERRORS} from '../actions/session_actions';
+import {RECEIVE_CURRENT_USER, RECEIVE_LOGIN_USER, RECEIVE_LOGIN_USERS,
+  RECEIVE_LOGIN_ERRORS, RECEIVE_SIGNUP_ERRORS, RECEIVE_LOGOUT_USER} from '../actions/session_actions';
 import {merge} from 'lodash';
 
 const initState = {
@@ -10,6 +11,7 @@ const initState = {
 
 const SessionReducer = (state = initState, action) => {
   Object.freeze(state);
+  let clone = merge({}, state);
   switch(action.type){
     case RECEIVE_CURRENT_USER:
       return {currentUser: action.currentUser, errors: [], onlineUsers: state.onlineUsers};
@@ -22,8 +24,11 @@ const SessionReducer = (state = initState, action) => {
       double.onlineUsers = action.loginUsers;
       return double;
     case RECEIVE_LOGIN_USER:
-      let clone = merge({}, state);
       clone.onlineUsers.push(action.loginUser);
+      return clone;
+    case RECEIVE_LOGOUT_USER:
+      let index = clone.onlineUsers.indexOf(action.logoutUser);
+      clone.onlineUsers.splice(index, 1);
       return clone;
     default:
       return state;

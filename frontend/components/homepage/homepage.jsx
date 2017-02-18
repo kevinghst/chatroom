@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router';
 import ChatHistory from './chatHistory';
+import OnlineUsers from './onlineUsers';
 
 class HomePage extends React.Component{
   constructor(props){
@@ -20,6 +21,19 @@ class HomePage extends React.Component{
   componentDidMount(){
     this.props.fetchUnseenMessages();
     this.props.fetchMessages();
+    this.props.fetchLoginUsers();
+
+    let that = this;
+
+    var channel = this.pusher.subscribe('user_logs');
+
+    channel.bind('login', function(data) {
+      that.props.fetchLoginUser();
+    });
+
+    channel.bind('logout', function(data) {
+      that.props.fetchLogoutUser();
+    });
   }
 
   logout(){
@@ -40,7 +54,6 @@ class HomePage extends React.Component{
   }
 
   render(){
-
     let messages = this.props.all_messages;
     if (this.state.display_new) { messages = this.props.new_messages; }
 
@@ -62,6 +75,7 @@ class HomePage extends React.Component{
         <div className="chat-main">
           <section className="left-pane">
             <div className="currentUser">{currentUser.username}</div>
+            <OnlineUsers users = {this.props.onlineUsers}/>
             <div className="logout-button">
               <button onClick={this.logout}>Log Out</button>
             </div>
