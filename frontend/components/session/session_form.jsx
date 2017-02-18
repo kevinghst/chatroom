@@ -28,7 +28,8 @@ class SessionForm extends React.Component{
 
     this.props.login(loginState).then((currentUser) => {
       this.props.router.push("/home");
-    });
+      this.props.fetchLoginUsers();
+    })
   }
 
   render(){

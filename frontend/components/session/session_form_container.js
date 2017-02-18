@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 import SessionForm from './session_form';
-import {signup, login} from '../../actions/session_actions';
+import {signup, login, fetchLoginUsers} from '../../actions/session_actions';
 
 const mapStateToProps = (state) => {
   const log = !!state.session.currentUser;
@@ -10,13 +10,15 @@ const mapStateToProps = (state) => {
   return {
     loggedIn: log,
     loginErrors: errors,
+    onlineUsers: state.session.onlineUsers,
   };
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     signup: user => dispatch(signup(user)),
-    login: user => dispatch(login(user))
+    login: user => dispatch(login(user)),
+    fetchLoginUsers: () => dispatch(fetchLoginUsers())
   };
 };
 
