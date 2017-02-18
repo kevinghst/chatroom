@@ -7,7 +7,7 @@ class Api::UsersController < ApplicationController
   end
 
   def show
-    @user = User.all.order('updated_at DESC').last
+    @user = User.all.order('updated_at DESC').first
     render :show
   end
 
