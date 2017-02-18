@@ -9,13 +9,19 @@ class OnlineUsers extends React.Component{
   render(){
     let users = this.props.users || [];
     return(
-      <ul className = "onlineUsers">
-        {
-          users.map((user, idx) =>
-            <li className= "onlineUser" key={idx}>{user.username}</li>
-          )
-        }
-      </ul>
+      <div className = "onlineUsers">
+        <ul>
+          {
+            users.map((user, idx) =>
+              <li className= "onlineUser" key={idx}>
+                <div className="circle"></div>
+                <div>{user.username}</div>
+              </li>
+            )
+          }
+        </ul>
+      </div>
+
     );
   }
 }

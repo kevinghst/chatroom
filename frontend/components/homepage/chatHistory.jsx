@@ -35,7 +35,7 @@ class ChatHistory extends React.Component{
   createMessage(e){
     e.preventDefault();
     this.setState({ newMessage: "" });
-    this.props.createMessage({ author_id: this.props.currentUser.id, body: this.state.newMessage });
+    this.props.createMessage({ body: this.state.newMessage });
   }
 
   updateMessage(e){
