@@ -6,7 +6,7 @@ class Api::MessagesController < ApplicationController
     @message = Message.new(body: body)
     @message.author_id = current_user.id
     @message.save
-    Pusher.trigger('chat_room', 'message_sent', {})
+    Pusher.trigger('chat_room', 'message_sent', {id: @message.id, author_id: @message.author_id, body: @message.body, author_name: @message.author.username})
 
   end
 

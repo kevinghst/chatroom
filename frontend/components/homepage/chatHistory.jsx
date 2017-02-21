@@ -19,7 +19,7 @@ class ChatHistory extends React.Component{
 
     var channel = this.props.pusher.subscribe('chat_room');
     channel.bind('message_sent', function(data) {
-      that.props.fetchLastMessage();
+      that.props.fetchLastMessage(data);
     });
   }
 

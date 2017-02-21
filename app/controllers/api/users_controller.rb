@@ -4,11 +4,6 @@ class Api::UsersController < ApplicationController
     render :index
   end
 
-  def show
-    @user = User.all.order('updated_at DESC').first
-    render :show
-  end
-
   def user_params
     params.require(:user).permit(:firstname, :lastname, :gender, :birthday, :username, :password)
   end

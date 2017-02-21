@@ -21,13 +21,6 @@ export const logout = () => {
   });
 };
 
-export const fetchLoginUser = () => {
-  return $.ajax({
-    method: 'GET',
-    url: '/api/users/0',
-  });
-};
-
 export const fetchLoginUsers = () => {
   return $.ajax({
     method: 'GET',

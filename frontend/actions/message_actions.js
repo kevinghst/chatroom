@@ -38,11 +38,9 @@ export function cleanNewMessages(){
   };
 }
 
-export function fetchLastMessage(){
+export function fetchLastMessage(message){
   return(dispatch) => {
-    return APIUtil.fetchLastMessage().then(
-      (message) => dispatch(receiveMessage(message))
-    );
+    return dispatch(receiveMessage(message));
   };
 }
 

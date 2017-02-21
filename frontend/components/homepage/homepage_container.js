@@ -17,13 +17,13 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
       logout: () => dispatch(logout()),
-      fetchLastMessage: () => dispatch(fetchLastMessage()),
+      fetchLastMessage: (message) => dispatch(fetchLastMessage(message)),
       fetchMessages: () => dispatch(fetchMessages()),
       fetchUnseenMessages: () => dispatch(fetchUnseenMessages()),
       createMessage: (message) => dispatch(createMessage(message)),
       cleanNewMessages: () => dispatch(cleanNewMessages()),
-      fetchLoginUser: () => dispatch(fetchLoginUser()),
-      fetchLogoutUser: () => dispatch(fetchLogoutUser()),
+      fetchLoginUser: (username) => dispatch(fetchLoginUser(username)),
+      fetchLogoutUser: (username) => dispatch(fetchLogoutUser(username)),
       fetchLoginUsers: () => dispatch(fetchLoginUsers())
   };
 };

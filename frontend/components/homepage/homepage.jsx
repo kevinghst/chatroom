@@ -28,11 +28,11 @@ class HomePage extends React.Component{
     var channel = this.pusher.subscribe('user_logs');
 
     channel.bind('login', function(data) {
-      that.props.fetchLoginUser();
+      that.props.fetchLoginUser(data.username);
     });
 
     channel.bind('logout', function(data) {
-      that.props.fetchLogoutUser();
+      that.props.fetchLogoutUser(data.username);
     });
   }
 

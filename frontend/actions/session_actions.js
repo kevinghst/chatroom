@@ -49,19 +49,15 @@ export const receiveSignupErrors = signupErrors => {
   };
 };
 
-export function fetchLoginUser(){
+export function fetchLoginUser(username){
   return (dispatch) => {
-    return APIUtil.fetchLoginUser().then(
-      (loginUser) => dispatch(receiveLoginUser(loginUser))
-    );
+    return dispatch(receiveLoginUser(username));
   };
 }
 
-export function fetchLogoutUser(){
+export function fetchLogoutUser(username){
   return (dispatch) => {
-    return APIUtil.fetchLoginUser().then(
-      (logoutUser) => dispatch(receiveLogoutUser(logoutUser))
-    );
+    return dispatch(receiveLogoutUser(username));
   };
 }
 
