@@ -93,6 +93,7 @@ class HomePage extends React.Component{
               currentUser = {currentUser}
               createMessage = {this.props.createMessage}
               fetchLastMessage = {this.props.fetchLastMessage}
+              fetchMyLastMessage = {this.props.fetchMyLastMessage}
               pusher = {this.pusher}
             />
 

@@ -4,10 +4,18 @@ export const RECEIVE_MESSAGE = "RECEIVE_MESSAGE";
 export const RECEIVE_MESSAGES = "RECEIVE_MESSAGES";
 export const RECEIVE_NEW_MESSAGES = "RECEIVE_NEW_MESSAGES";
 export const ERASE_MESSAGES = "ERASE_MESSAGES";
+export const RECEIVE_MY_MESSAGE = "RECEIVE_MY_MESSAGE";
 
 export const receiveMessage = message => {
   return {
     type: RECEIVE_MESSAGE,
+    message
+  };
+};
+
+export const receiveMyMessage = message => {
+  return {
+    type: RECEIVE_MY_MESSAGE,
     message
   };
 };
@@ -40,7 +48,15 @@ export function cleanNewMessages(){
 
 export function fetchLastMessage(message){
   return(dispatch) => {
+    APIUtil.seenLastMessage();
     return dispatch(receiveMessage(message));
+  };
+}
+
+export function fetchMyLastMessage(message){
+  return(dispatch) => {
+    APIUtil.seenLastMessage();
+    return dispatch(receiveMyMessage(message));
   };
 }
 

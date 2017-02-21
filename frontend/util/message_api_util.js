@@ -20,7 +20,7 @@ export const createMessage = (message) => {
   });
 };
 
-export const fetchLastMessage = () => {
+export const seenLastMessage = () => {
   return $.ajax({
     method: 'GET',
     url: `/api/messages/1`

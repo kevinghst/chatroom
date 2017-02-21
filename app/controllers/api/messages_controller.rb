@@ -7,7 +7,6 @@ class Api::MessagesController < ApplicationController
     @message.author_id = current_user.id
     @message.save
     Pusher.trigger('chat_room', 'message_sent', {id: @message.id, author_id: @message.author_id, body: @message.body, author_name: @message.author.username})
-
   end
 
   def index
@@ -20,7 +19,6 @@ class Api::MessagesController < ApplicationController
   def show
     if params[:id] == "1"
       @message = Message.last
-      render :show
       current_user.messages << @message
     else
       seen_messages = current_user.messages
