@@ -11,7 +11,6 @@ const initState = {
 
 const SessionReducer = (state = initState, action) => {
   Object.freeze(state);
-  let clone = merge({}, state);
   switch(action.type){
     case RECEIVE_CURRENT_USER:
       return {currentUser: action.currentUser, errors: [], onlineUsers: state.onlineUsers};
@@ -24,12 +23,19 @@ const SessionReducer = (state = initState, action) => {
       double.onlineUsers = action.loginUsers;
       return double;
     case RECEIVE_LOGIN_USER:
+      let clone = merge({}, state);
       clone.onlineUsers.push(action.loginUser);
       return clone;
     case RECEIVE_LOGOUT_USER:
-      let index = clone.onlineUsers.indexOf(action.logoutUser);
-      clone.onlineUsers.splice(index, 1);
-      return clone;
+      let clone_two = merge({}, state);
+      let index;
+      for(i=0; i<clone_two.onlineUsers.length; i++){
+        if(clone_two.onlineUsers[i].username === action.logoutUser.username){
+          index = i;
+        }
+      }
+      clone_two.onlineUsers.splice(index, 1);
+      return clone_two;
     default:
       return state;
   }
