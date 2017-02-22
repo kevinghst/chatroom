@@ -35,6 +35,7 @@ const SessionReducer = (state = initState, action) => {
         }
       }
       clone_two.onlineUsers.splice(index, 1);
+      let x = 1+1;
       return clone_two;
     default:
       return state;
