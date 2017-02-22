@@ -28,13 +28,12 @@ const SessionReducer = (state = initState, action) => {
       return clone;
     case RECEIVE_LOGOUT_USER:
       let clone_two = merge({}, state);
-      let index;
       for(let i=0; i<clone_two.onlineUsers.length; i++){
         if(clone_two.onlineUsers[i].username === action.logoutUser.username){
-          index = i;
+          clone_two.onlineUsers.splice(i, 1);
+          i = i-1;
         }
       }
-      clone_two.onlineUsers.splice(index, 1);
       let x = 1+1;
       return clone_two;
     default:
