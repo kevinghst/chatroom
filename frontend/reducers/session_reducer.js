@@ -29,7 +29,7 @@ const SessionReducer = (state = initState, action) => {
     case RECEIVE_LOGOUT_USER:
       let clone_two = merge({}, state);
       let index;
-      for(i=0; i<clone_two.onlineUsers.length; i++){
+      for(let i=0; i<clone_two.onlineUsers.length; i++){
         if(clone_two.onlineUsers[i].username === action.logoutUser.username){
           index = i;
         }
